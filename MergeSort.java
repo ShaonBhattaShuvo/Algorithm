@@ -4,7 +4,6 @@ package algorithm;
 import java.util.Scanner;
 
 /**
- *
  * @author Shaon Bhatta Shuvo
  */
 public class MergeSort {
