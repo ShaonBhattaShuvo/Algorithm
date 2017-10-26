@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author SHUVO
+ * @author Shaon Bhatta Shuvo
  */
 public class MergeSort {
     
