@@ -64,12 +64,12 @@ public class CoinChangeDP {
         }
       //if required coins also includes the first coin
         while(count!=table[row-1][col-1] && amount>=coin[i]){
-            System.out.print(coin[i]);
+            System.out.print(coin[i]+" ");
             amount = amount-coin[i];
         }
       //checking wheather the problem has a solution or will left with some remaining values! 
        if(amount !=0){
-          System.out.println("Problem does't have a solution for given set of coins as still amount "+amount+"Tk. has to be changed! ");
+          System.out.println("\nProblem does't have a solution for given set of coins as still amount "+amount+" Tk. has to be changed! ");
        }
         
     }
