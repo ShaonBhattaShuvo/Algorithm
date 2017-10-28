@@ -63,9 +63,9 @@ public class CoinChangeDP {
             
         }
       //if required coins also includes the first coin
-        if(count!=table[row-1][col-1]){
+        while(count!=table[row-1][col-1] && amount>=coin[i]){
             System.out.print(coin[i]);
-            amount = amount- coin[i];
+            amount = amount-coin[i];
         }
       //checking wheather the problem has a solution or will left with some remaining values! 
        if(amount !=0){
