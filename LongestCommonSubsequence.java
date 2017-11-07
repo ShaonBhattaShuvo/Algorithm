@@ -41,15 +41,14 @@ public class LongestCommonSubsequence {
         System.out.println(table[row-1][col-1]);
         //tracing sequence
         System.out.print("Sequnce is: ");
-        int i=row-1, j=col-1 ,k=0;
+        int i=row-1, j=col-1;
         int sequenceLength = table[row-1][col-1];
         //creating an array of to store LCS
         char sequence[] = new char[sequenceLength];
-        while(i>0&&j>0){
+        while(i>0 && j>0){
             if (table[i][j] == table[i - 1][j - 1] + 1 && s1.charAt(i - 1) == s2.charAt(j - 1)) {
-                //System.out.print(s1.charAt(i-1) + " ");
                 //inserting sequence(LCS) into an array
-                sequence[k++] = s1.charAt(i - 1);
+                sequence[--sequenceLength] = s1.charAt(i - 1);
                 i = i - 1;
                 j = j - 1;
             } else if (table[i][j] == table[i - 1][j]) {
@@ -60,8 +59,8 @@ public class LongestCommonSubsequence {
 
         }
         //printing LCS
-        for (int r = sequenceLength-1; r >=0; r--) {
-            System.out.print(sequence[r]);
+        for (int k = 0; k <sequence.length; k++) {
+            System.out.print(sequence[k]);
         }
     }
 }
