@@ -49,13 +49,13 @@ public class LongestIncreasingSubsequence {
         //System.out.println("index"+index);
         System.out.print("\nSequece:");
         printSequence(a,trace,index);
-        //printing the last element of sequence
-        System.out.print(a[index]);
     }
     //method for printing the sequence 
     public static void printSequence(int a[],int trace[],int index){
-        if(trace[index]==-1) 
+        if(trace[index]==-1) {
+            System.out.println(a[index]+" ");
             return;
+        }
         index=trace[index];
         printSequence(a,trace,index);
         System.out.print(a[index]+ " ");
