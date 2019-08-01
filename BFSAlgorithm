@@ -1,0 +1,101 @@
+//Main Class
+package bfsalgorithm;
+
+/**
+ *
+ * @author Shaon Bhatta Shuvo
+ */
+public class BFSAlgorithm {
+
+    public static void main(String[] args) {
+        BFS bfs = new BFS();
+        
+        Vertex A = new Vertex('A');
+        Vertex B = new Vertex('B');
+        Vertex C = new Vertex('C');
+        Vertex D = new Vertex('D');
+        Vertex E = new Vertex('E');
+        
+        A.addNeighbourVertex(B);
+        A.addNeighbourVertex(D);
+        D.addNeighbourVertex(E);
+        B.addNeighbourVertex(C);
+        
+        bfs.BFS_Implementation(A);
+    }
+    
+//Vertex Class
+package bfsalgorithm;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Vertex {
+    private char data;
+    private boolean visited;
+    private List<Vertex> neighbourList;
+    
+    public Vertex(char data){
+        this.data =data;
+        this.neighbourList = new ArrayList<>();
+    }
+
+    public char getData() {
+        return data;
+    }
+
+    public void setData(char data) {
+        this.data = data;
+    }
+
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
+
+    public List<Vertex> getNeighbourList() {
+        return neighbourList;
+    }
+
+    public void setNeighbourList(List<Vertex> neighbourList) {
+        this.neighbourList = neighbourList;
+    }
+    public void addNeighbourVertex(Vertex vertex){
+        neighbourList.add(vertex);
+    }
+    
+    @Override
+    public String toString(){
+        return " "+this.data;
+    }  
+}
+
+//BFS implementation class
+
+package bfsalgorithm;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class BFS {
+    public void BFS_Implementation(Vertex root){
+        Queue<Vertex> queue = new LinkedList<>();
+        root.setVisited(true);
+        queue.add(root);
+        while(!queue.isEmpty()){
+            Vertex actualVertex = queue.remove();
+            System.out.println(actualVertex+" ");
+            for (Vertex v :  actualVertex.getNeighbourList()){
+                if(!v.isVisited()){
+                    v.setVisited(true);
+                    queue.add(v);
+                }
+            }
+            
+        }
+    
+    }
+}
